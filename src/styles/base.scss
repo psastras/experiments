@@ -1,0 +1,64 @@
+@import "fonts/fonts.scss";
+@import "colors.scss";
+
+html, body {
+    background-color: $white;
+    color: $black;
+    font-family: $font-sans;
+}
+
+::selection {
+    background: $highlight-warm;
+}
+
+body {
+    max-width: 980px;
+    margin: 1.0em auto 0em auto;
+}
+
+h1, h2 {
+    font-size: 1.5em;
+    font-family: $font-mono;
+    font-weight: normal;
+    margin: 0em;
+}
+
+h1 {
+    // border-left: 1.25em solid $highlight-hot;
+    padding-left: 0.0em;
+    margin-bottom: 1.5em;
+}
+
+h2 {
+    font-size: 1.3em;
+    border-bottom: 1px solid $black;
+}
+
+.highlight-hot {
+    border-bottom: 0.5em solid $highlight-hot;
+    padding: 0.25em 0em;
+}
+
+.highlight-warm {
+    border-bottom: 0.5em solid $highlight-warm;
+    padding: 0.25em 0em;
+}
+
+#header {
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 0.1em solid $black;
+    &>a {
+        font-size: 1.2em;
+        margin-right: 1.0em;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+    border-bottom: 0.25em solid $highlight-cool;
+    &:hover {
+        opacity: 0.6;
+    }
+}

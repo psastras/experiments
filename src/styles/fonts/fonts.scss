@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('FiraSans'), url(fonts/FiraSans.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('FiraMono'), url(fonts/FiraMono.woff) format('woff');
+}
+
+$font-mono: 'Fira Mono', Consolas, monospace;
+$font-sans: 'Fira Sans', Helvetica, sans-serif;

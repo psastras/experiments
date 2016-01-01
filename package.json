@@ -1,0 +1,35 @@
+{
+  "name": "experiments",
+  "version": "0.0.1",
+  "description": "Experiments in JS / WebGL",
+  "scripts": {
+    "postinstall": "webpack --config ./webpack-prod.config.js --progress --colors",
+    "start": "node server.js"
+  },
+  "dependencies": {
+      "webpack": "^1.12.9",
+      "webpack-dev-server": "^1.14.0",
+      "ts-loader": "^0.7.2",
+      "typescript": "^1.7.5",
+      "tsd": "^0.6.5",
+      "tsc": "^1.20150623.0",
+      "sass-loader": "^3.1.2",
+      "node-sass": "^3.4.2",
+      "css-loader": "^0.23.1",
+      "style-loader": "^0.13.0",
+      "jade": "^1.11.0",
+      "jade-html-loader": "^0.0.3",
+      "html-loader": "^0.4.0",
+      "file-loader": "^0.8.5",
+      "url-loader": "^0.5.7",
+      "url": "^0.11.0",
+      "express": "^4.13.3",
+      "file": "^0.2.2",
+      "directory": "^0.1.0",
+      "extract-text-webpack-plugin": "^0.9.1",
+      "http2": "^3.2.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
