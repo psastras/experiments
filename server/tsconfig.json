@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "build/"
+  },
+  "files": [
+    "server.ts",
+    "start_server.ts",
+    "test/server.ts",
+    "./../typings/tsd.d.ts"
+  ]
+}
