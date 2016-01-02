@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Various Web Experiments",
   "scripts": {
-    "postinstall": "cd server/ && tsc && cd.. && webpack --config ./webpack-prod.config.js --progress --colors",
+    "postinstall": "./post_install.sh",
     "start": "node server/build/start_server.js",
     "test": "mocha --reporter mocha-circleci-reporter server/build/test"
   },
