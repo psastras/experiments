@@ -19,7 +19,7 @@ export class Server {
   }
   
   public start(): Server {
-    this.server.listen(this.port, 'localhost', function (err, result) {
+    this.server.listen(this.port, function (err, result) {
       if (err) { console.log(err) }
     });
     return this;
