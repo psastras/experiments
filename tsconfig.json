@@ -6,6 +6,7 @@
   "files": [
     "src/index.ts",
     "src/about.ts",
+    "src/webgl.ts",
     "src/experiments.ts",
     "typings/tsd.d.ts"
   ]

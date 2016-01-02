@@ -7,7 +7,8 @@ module.exports = {
   entry: {
     index: ["webpack-dev-server/client?http://localhost:8080", "webpack/hot/only-dev-server", "./src/index.ts", "file?name=index.html!jade-html?pretty=true!./src/content/index.jade"],
     about: ["webpack-dev-server/client?http://localhost:8080", "webpack/hot/only-dev-server", "./src/about.ts", "file?name=about.html!jade-html?pretty=true!./src/content/about.jade"],
-    experiments: ["webpack-dev-server/client?http://localhost:8080", "webpack/hot/only-dev-server", "./src/experiments.ts", "file?name=experiments.html!jade-html?pretty=true!./src/content/experiments.jade"]  
+    experiments: ["webpack-dev-server/client?http://localhost:8080", "webpack/hot/only-dev-server", "./src/experiments.ts", "file?name=experiments.html!jade-html?pretty=true!./src/content/experiments.jade"],
+    webgl: ["webpack-dev-server/client?http://localhost:8080", "webpack/hot/only-dev-server", "./src/webgl.ts", "file?name=webgl.html!jade-html?pretty=true!./src/content/webgl.jade"]  
   },
   output: {
     path: path.join(__dirname, 'public/'),

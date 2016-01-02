@@ -101,3 +101,9 @@ pre {
   padding: 1.0em 0em;
   color: $gray;
 }
+
+canvas {
+  display: block;
+  height: 100vh; 
+  width: 100vw; 
+}
