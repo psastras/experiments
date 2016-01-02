@@ -1,7 +1,12 @@
 /// <reference path="threejs/three.d.ts" />
-
-declare var require: {
-    <T>(path: string): T;
-    (paths: string[], callback: (...modules: any[]) => void): void;
-    ensure: (paths: string[], callback: (require: <T>(path: string) => T) => void) => void;
-};
+/// <reference path="express/express.d.ts" />
+/// <reference path="mime/mime.d.ts" />
+/// <reference path="node/node.d.ts" />
+/// <reference path="compression/compression.d.ts" />
+/// <reference path="serve-static/serve-static.d.ts" />
+/// <reference path="morgan/morgan.d.ts" />
+/// <reference path="webpack/webpack.d.ts" />
+/// <reference path="mocha/mocha.d.ts" />
+/// <reference path="assert/assert.d.ts" />
+/// <reference path="form-data/form-data.d.ts" />
+/// <reference path="request/request.d.ts" />
