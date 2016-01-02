@@ -2,63 +2,89 @@
 @import "colors.scss";
 
 html, body {
-    background-color: $white;
-    color: $black;
-    font-family: $font-sans;
+  background-color: $white;
+  color: $black;
+  font-family: $font-sans;
 }
 
 ::selection {
-    background: $highlight-warm;
+  background: $highlight-warm;
 }
 
 body {
-    max-width: 980px;
-    margin: 1.0em auto 0em auto;
-}
-
-h1, h2 {
-    font-size: 1.5em;
-    font-family: $font-mono;
-    font-weight: normal;
-    margin: 0em;
+  max-width: 980px;
+  margin: 1.0em auto 0em auto;
 }
 
 h1 {
-    // border-left: 1.25em solid $highlight-hot;
-    padding-left: 0.0em;
-    margin-bottom: 1.5em;
+  font-size: 1.5em;
+  font-family: $font-mono;
+  font-weight: normal;
+  margin: 0em;
+  padding-left: 0.0em;
+  margin-bottom: 1.5em;
+  margin-top: 1.0em;
 }
 
 h2 {
-    font-size: 1.3em;
-    border-bottom: 1px solid $black;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin: 1.3em 0em;
 }
 
 .highlight-hot {
-    border-bottom: 0.5em solid $highlight-hot;
-    padding: 0.25em 0em;
+  border-bottom: 0.5em solid $highlight-hot;
+  padding: 0.25em 0em;
 }
 
 .highlight-warm {
-    border-bottom: 0.5em solid $highlight-warm;
-    padding: 0.25em 0em;
+  border-bottom: 0.5em solid $highlight-warm;
+  padding: 0.25em 0em;
 }
 
 #header {
-    margin-bottom: 1.5em;
-    padding-bottom: 1.5em;
-    border-bottom: 0.1em solid $black;
-    &>a {
-        font-size: 1.2em;
-        margin-right: 1.0em;
-    }
+  margin-bottom: 1.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 0.1em solid $black;
+}
+
+#nav {
+  padding-bottom: 1.0em;
+}
+
+#nav-left {
+  float: left;
+  &>a {
+    font-size: 1.2em;
+    margin-right: 1.0em;
+  }
+  height: 100%;
+}
+
+#nav-right {
+  float: right;
+  padding-top: 0.5em;
 }
 
 a {
-    text-decoration: none;
-    color: $black;
-    border-bottom: 0.25em solid $highlight-cool;
-    &:hover {
-        opacity: 0.6;
-    }
+  text-decoration: none;
+  color: $black;
+  border-bottom: 0.25em solid $highlight-cool;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+pre {
+  font-family: $font-mono;
+  padding: 1em;
+  font-size: 10pt;
+  background-color: $light-gray;
+  border-radius: 0.25em;
+  color: $gray;
+  line-height: 1.5em;
+}
+
+.no-underline {
+  border-bottom: none;
 }

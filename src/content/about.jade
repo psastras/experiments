@@ -4,6 +4,39 @@ include ./header.jade
 
 #content
 
-  p This is a #[a(href="") test] as well.  Latest master #[img(src="https://circleci.com/gh/psastras/experiments.svg?style=svg")]. 
+  h2 About
+  
+  p. 
+    This website and its content is built using #[a(href="https://nodejs.org") Node.js], 
+    #[a(href="https://webpack.github.io/") webpack], #[a(href="http://jade-lang.com/") Jade], 
+    #[a(href="http://sass-lang.com/") Sass], #[a(href="http://www.typescriptlang.org/") Typescript], 
+    and other third party libraries.
+  
+  h2 Source and License
+  
+  #[a.no-underline(href="https://circleci.com/gh/psastras/experiments/tree/master") #[img(src="https://circleci.com/gh/psastras/experiments.svg?style=svg")]]
+
+  p. 
+    Source code for all of the site can be found on #[a(href="https://github.com/psastras/experiments") Github] 
+    and is licensed under the permissive 
+    #[a(href="https://github.com/psastras/experiments/blob/master/LICENSE.txt") MIT License].
+  p.
+    To clone the repo,
+  pre.
+    git clone https://github.com/psastras/experiments.git
+  p. 
+    To build and run (requires #[a(href="https://docs.npmjs.com/getting-started/installing-node") Node.js]), 
+
+  pre.
+    cd experiments/
+    npm install
+    npm start
+
+  p. 
+    Then navigate to #[a(href="http://localhost:8080") localhost:8080].
+    To run tests, 
+
+  pre.
+    npm test
 
 script(src='about.js')
