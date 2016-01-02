@@ -25,7 +25,7 @@ module.exports = {
     new ExtractTextPlugin('[name].css')
   ],
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.scss' ]
+    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.scss', '.ico' ]
   },
   module: {
     loaders: [
@@ -42,6 +42,10 @@ module.exports = {
       },
       {
         test: /\.woff$/,
+        loader: 'file'
+      },
+      {
+        test: /\.ico$/,
         loader: 'file'
       }
     ]
