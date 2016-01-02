@@ -6,8 +6,6 @@ import express = require("express")
 import compression = require('compression');
 import morgan = require('morgan');
 var webpack = require('webpack');
-
-var isDevelopment = (process.env.NODE_ENV !== 'production');
 var static_path = path.join(__dirname, '../../public');
 
 export class Server {

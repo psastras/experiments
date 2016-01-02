@@ -1,3 +1,8 @@
+test:
+  override:
+    - mkdir -p $CIRCLE_TEST_REPORTS/
+    - npm test
+    - mv test-results.xml $CIRCLE_TEST_REPORTS/
 deployment:
   staging:
     branch: master
