@@ -5,8 +5,11 @@ import path = require("path")
 import express = require("express")
 import compression = require('compression');
 import morgan = require('morgan');
+import request = require('request');
+
 var webpack = require('webpack');
 var static_path = path.join(__dirname, '../../public');
+var circleci_token = process.env.CIRCLECI_TOKEN;
 
 export class Server {
   
@@ -27,8 +30,34 @@ export class Server {
   
   private router(): express.Router {
     var router = express.Router();
-    router.get('/build/', function(req, res) {
-        res.json({ message: 'Test' });   
+    // TODO: Factor this out
+    router.get('/build/recent', function(req, res) {
+        var options = {
+            uri: 'https://circleci.com/api/v1/project/psastras/experiments?circle-token=' + circleci_token + '&limit=5&offset=0&filter=completed',
+            method: 'GET',
+            json: true
+        }
+        request(options, function(error, response, body) {
+          if (circleci_token != null) {
+            if (!error && response.statusCode == 200) {
+              var json = body.map(function(item) {
+                return {
+                    subject: item.subject,
+                    author: item.committer_name,
+                    date: item.committer_date,
+                    url: item.build_url,
+                    commit: item.vcs_revision,
+                    outcome: item.outcome
+                }
+              });
+              res.status(200).json(json); 
+            } else {
+              res.status(500).json({ message: "Error fetching data from circle ci"});
+            }
+          } else {
+            res.status(500).json({ message: "No CIRCLECI_TOKEN defined."});
+          }
+        });  
     });
     return router;
   }

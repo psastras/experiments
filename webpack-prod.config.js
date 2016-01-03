@@ -26,7 +26,7 @@ module.exports = {
     new ExtractTextPlugin('[name].css')
   ],
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.scss', '.ico' ]
+    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.scss', '.ico', '.json' ]
   },
   module: {
     loaders: [
@@ -48,6 +48,10 @@ module.exports = {
       {
         test: /\.ico$/,
         loader: 'file'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
       }
     ]
   }

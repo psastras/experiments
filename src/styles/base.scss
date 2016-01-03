@@ -37,6 +37,10 @@ h2 {
   margin: 1.3em 0em;
 }
 
+h4 {
+  margin: 0.2em 0.0em;
+}
+
 .highlight-hot {
   border-bottom: 0.5em solid $highlight-hot;
   padding: 0.25em 0em;
@@ -106,4 +110,23 @@ canvas {
   display: block;
   height: 100vh; 
   width: 100vw; 
+}
+
+.commit {
+  font-size: 0.8em;
+  color: $gray;
+  display: block;
+  padding: 0.75em;
+  margin: 0.5em;
+  border: none;
+  border-left: 0.25em solid $highlight-warm;
+  box-shadow: 1px 1px 4px $light-gray;
+}
+
+.commit-success {
+   border-left: 0.25em solid $highlight-cool;
+}
+  
+.commit-failed {
+  border-left: 0.25em solid $highlight-hot;
 }
