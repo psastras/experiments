@@ -10,3 +10,4 @@
 /// <reference path="assert/assert.d.ts" />
 /// <reference path="form-data/form-data.d.ts" />
 /// <reference path="request/request.d.ts" />
+/// <reference path="node-cache/node-cache.d.ts" />

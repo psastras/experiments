@@ -6,6 +6,7 @@ import express = require("express")
 import compression = require('compression');
 import morgan = require('morgan');
 import request = require('request');
+import NodeCache = require('node-cache');
 
 var webpack = require('webpack');
 var static_path = path.join(__dirname, '../../public');
@@ -15,10 +16,18 @@ export class Server {
   
   private path = path.join(__dirname, 'public');
   private server: express.Application;
+  private cache: NodeCache;
   
   constructor(private port: number, private local: boolean) {
     this.server = this.local ? this.developmentServer() : this.productionServer();
     this.server.use('/api/v0/', this.router());
+    var options = { stdTTL: 15*60, 
+                    checkperiod: 120, 
+                    forceString: null, 
+                    objectValueSize: null, 
+                    arrayValueSize: null, 
+                    useClones: null };
+    this.cache = new NodeCache(options);
   }
   
   public start(): Server {
@@ -35,33 +44,39 @@ export class Server {
       res.status(200).json({ message: "/build" });
     });
     router.get('/build/recent', function(req, res) {
-        var options = {
-            uri: 'https://circleci.com/api/v1/project/psastras/experiments?circle-token=' + circleci_token + '&limit=5&offset=0&filter=completed',
-            method: 'GET',
-            json: true
-        }
-        request(options, function(error, response, body) {
-          if (circleci_token != null) {
-            if (!error && response.statusCode == 200) {
-              var json = body.map(function(item) {
-                return {
-                    subject: item.subject,
-                    author: item.committer_name,
-                    date: item.committer_date,
-                    url: item.build_url,
-                    commit: item.vcs_revision,
-                    outcome: item.outcome
-                }
-              });
-              res.status(200).json(json); 
-            } else {
-              res.status(500).json({ message: "Error fetching data from circle ci"});
-            }
+      var buildListJson = this.cache.get("build.recent.json");
+      if (buildListJson != null) {
+        res.status(200).json(buildListJson);
+        return;
+      }
+      var options = {
+          uri: 'https://circleci.com/api/v1/project/psastras/experiments?circle-token=' + circleci_token + '&limit=5&offset=0&filter=completed',
+          method: 'GET',
+          json: true
+      }
+      request(options, function(error, response, body) {
+        if (circleci_token != null) {
+          if (!error && response.statusCode == 200) {
+            var json = body.map(function(item) {
+              return {
+                  subject: item.subject,
+                  author: item.committer_name,
+                  date: item.committer_date,
+                  url: item.build_url,
+                  commit: item.vcs_revision,
+                  outcome: item.outcome
+              }
+            });
+            this.cache.set("build.recent.json", json);
+            res.status(200).json(json); 
           } else {
-            res.status(500).json({ message: "No CIRCLECI_TOKEN defined."});
+            res.status(500).json({ message: "Error fetching data from circle ci"});
           }
-        });  
-    });
+        } else {
+          res.status(500).json({ message: "No CIRCLECI_TOKEN defined."});
+        }
+      }.bind(this));  
+    }.bind(this));
     return router;
   }
   
