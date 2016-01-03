@@ -46,7 +46,7 @@ describe('Server', function() {
      it('GET', function (done) {
       request(uri + '/api/v0/build', function (error, response, body) {
           assert.equal(200, response.statusCode);
-          assert.equal('{"message":"Test"}', body);
+          assert.equal('{"message":"/build"}', body);
           done();
       });
     });

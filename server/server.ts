@@ -31,6 +31,9 @@ export class Server {
   private router(): express.Router {
     var router = express.Router();
     // TODO: Factor this out
+    router.get('/build', function(req, res) {
+      res.status(200).json({ message: "/build" });
+    });
     router.get('/build/recent', function(req, res) {
         var options = {
             uri: 'https://circleci.com/api/v1/project/psastras/experiments?circle-token=' + circleci_token + '&limit=5&offset=0&filter=completed',
