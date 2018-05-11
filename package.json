@@ -28,7 +28,7 @@
     "jade-html-loader": "^0.0.3",
     "json-loader": "^0.5.4",
     "mocha": "^2.3.4",
-    "mocha-circleci-reporter": "^0.0.1",
+    "mocha-circleci-reporter": "^0.0.3",
     "morgan": "^1.6.1",
     "net": "^1.0.2",
     "node-cache": "^3.0.0",
